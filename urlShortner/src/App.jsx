@@ -1,11 +1,44 @@
 
+import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom'
 import './App.css'
+import LandingPage from './pages/landing'
+import Dashboard from './pages/dahboard'
+import Auth from './pages/auth'
+import Link from './pages/link'
+import RedirectLink from './pages/redirect-link'
+
+const router = createBrowserRouter([
+  {
+    element:<AppLayout />,
+    children:[
+      {
+        path: '/',
+        element: <LandingPage />
+      },
+      {
+        path: '/dashboard',
+        element: <Dashboard />
+      },
+      {
+        path: '/auth',
+        element: <Auth />
+      },
+      {
+        path: '/link/:id',
+        element: <Link />
+      },
+      {
+        path: '/:id',
+        element: <RedirectLink />
+      },
+    ]
+  }
+])
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>URL Shortner Project</div>
+    <RouterProvider router={router}/>
   )
 }
 
