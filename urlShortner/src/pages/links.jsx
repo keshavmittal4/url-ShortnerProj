@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Dashboard = () => {
+const Links = () => {
     
 
     return (
         <>
-            
+            Link
         </>
     )
 }
 
-export default Dashboard;
+export default Links;

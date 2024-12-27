@@ -2,10 +2,12 @@
 import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom'
 import './App.css'
 import LandingPage from './pages/landing'
-import Dashboard from './pages/dahboard'
+import Dashboard from './pages/dashboard'
 import Auth from './pages/auth'
-import Link from './pages/link'
+// import Link from './pages/link'
 import RedirectLink from './pages/redirect-link'
+import AppLayout from './layouts/app-layout'
+import Links from './pages/links'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/link/:id',
-        element: <Link />
+        element: <Links />
       },
       {
         path: '/:id',

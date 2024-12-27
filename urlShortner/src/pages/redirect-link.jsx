@@ -5,7 +5,7 @@ const RedirectLink = () => {
 
     return (
         <>
-            
+            Redirect Link
         </>
     )
 }
