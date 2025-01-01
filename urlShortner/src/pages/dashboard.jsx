@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { UrlState } from "@/context";
+import { getClicksForUrls } from "@/db/apiClicks";
 import { getUrls } from "@/db/apiUrls";
 import useFetch from "@/hooks/use-fetch";
 import { Filter, User } from "lucide-react";
@@ -10,11 +11,19 @@ import React, { useState } from "react";
 import { BarLoader } from "react-spinners";
 
 const Dashboard = () => {
+  const [searchQuery, setSearchQuery] = useState("");
 
-    const [searchQuery, setSearchQuery] = useState("");
-
-    const {user} = UrlState()
-    const {loading, error, data: urls, fn: fnUrls} = useFetch(getUrls, User?.id);
+  const { user } = UrlState();
+  const {
+    loading,
+    error,
+    data: urls,
+    fn: fnUrls,
+  } = useFetch(getUrls, User?.id);
+  useFetch(
+    getClicksForUrls,
+    urls?.map((url) => url.id)
+  );
 
   return (
     <div className="flex flex-col gap-8">
@@ -46,14 +55,13 @@ const Dashboard = () => {
 
       <div className="relative">
         <Input
-        type="text"
-        placeholder="Filter Links..."
-        value={searchQuery}
-        onChange={e=> setSearchQuery(e.target.value)}
+          type="text"
+          placeholder="Filter Links..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
 
         <Filter className="absolute top-2 right-2 p-1" />
-
       </div>
 
       {/* <Error message={error} />  */}
