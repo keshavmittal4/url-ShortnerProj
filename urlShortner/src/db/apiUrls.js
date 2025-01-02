@@ -1,6 +1,7 @@
 import supabase from "./supabase";
 
 export async function getUrls(user_id) {
+  console.log("User id: " , user_id);
   const { data, error } = await supabase
     .from("urls")
     .select("*")
@@ -8,7 +9,7 @@ export async function getUrls(user_id) {
 
   if (error) {
     console.error(error.message);
-    throw new Error("Unable to load URL");
+    throw new Error("Unable to load URLs");
   }
 
   return data;
