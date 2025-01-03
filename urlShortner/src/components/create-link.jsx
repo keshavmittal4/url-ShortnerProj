@@ -1,5 +1,5 @@
 import { UrlState } from "@/context";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   Dialog,
@@ -13,7 +13,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import Error from "./error";
 import { Card } from "./ui/card";
-import * as yup from 'yup';
+import * as yup from "yup";
 
 const CreateLink = () => {
   const { user } = UrlState();
@@ -31,41 +31,66 @@ const CreateLink = () => {
   const schema = yup.object().shape({
     title: yup.string().required("Title is required"),
     longUrl: yup
-        .string()
-        .url("Must be a valid URL")
-        .required("Long URL is required"),
+      .string()
+      .url("Must be a valid URL")
+      .required("Long URL is required"),
     customUrl: yup.string(),
-  })
+  });
+
+  const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.id]: e.target.value,
+    });
+  };
 
   return (
-    <div>
-      <Dialog>
-        <DialogTrigger>
-          <Button variant="destructive">Create New Link</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="font-bold text-2xl">Create New</DialogTitle>
-          </DialogHeader>
+    <Dialog
+      defaultOpen={longLink}
+      onOpenChange={(res) => {
+        if (!res) setSearchParams({});
+      }}
+    >
+      <DialogTrigger>
+        <Button variant="destructive">Create New Link</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle className="font-bold text-2xl">Create New</DialogTitle>
+        </DialogHeader>
 
-          <Input id="title" placeholder="Short Link's Title" />
-          <Error message={"some error"} />
+        <Input
+          id="title"
+          placeholder="Short Link's Title"
+          value={formValues.title}
+          onChange={handleChange}
+        />
+        <Error message={"some error"} />
 
-          <Input id="title" placeholder="Enter your Long URL" />
-          <Error message={"some error"} />
+        <Input
+          id="title"
+          placeholder="Enter your Long URL"
+          value={formValues.longUrl}
+          onChange={handleChange}
+        />
+        <Error message={"some error"} />
 
-          <div className="flex items-center gap-2">
-            <Card className="p-2">cuttr.in</Card> /
-            <Input id="title" placeholder="Custom Link (Optional)" />
-          </div>
+        <div className="flex items-center gap-2">
+          <Card className="p-2">cuttr.in</Card> /
+          <Input
+            id="title"
+            placeholder="Custom Link (Optional)"
+            value={formValues.customUrl}
+            onChange={handleChange}
+          />
+        </div>
 
-          <Error message={"some error"} />
-          <DialogFooter className="sm:justify-start">
+        <Error message={"some error"} />
+        <DialogFooter className="sm:justify-start">
           <Button variant="destructive">Create</Button>
         </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 
