@@ -60,3 +60,14 @@ export async function createUrl(
 
   return data;
 }
+
+export async function deleteUrl(id) {
+  const { data, error } = await supabase.from("urls").delete().eq("id", id);
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Unable to delete URL");
+  }
+
+  return data;
+}
