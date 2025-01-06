@@ -44,8 +44,6 @@ const LinkCard = ({ url, fetchUrls }) => {
         <span className="flex items-end font-extrabold text-sm flex-1">
           {new Date(url.created_at).toLocaleString()}
         </span>
-      </Link>
-
       <div className="flex gap-2">
         <Button
           variant="ghost"
@@ -62,6 +60,8 @@ const LinkCard = ({ url, fetchUrls }) => {
           {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
         </Button>
       </div>
+      </Link>
+
     </div>
   );
 };
