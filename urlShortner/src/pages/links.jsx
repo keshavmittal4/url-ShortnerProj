@@ -1,4 +1,13 @@
+import Location from "@/components/location-stats";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { UrlState } from "@/context";
 import { getClicksForUrl } from "@/db/apiClicks";
 import { deleteUrl, getUrl } from "@/db/apiUrls";
@@ -88,28 +97,62 @@ const Links = () => {
             {" "}
             {new Date(url?.created_at).toLocaleString()}{" "}
           </span>
+          <div className="flex gap-2">
+            <Button
+              variant="ghost"
+              onClick={() =>
+                navigator.clipboard.writeText(
+                  `https://cuttr.in/${url?.short_url}`
+                )
+              }
+            >
+              <Copy />
+            </Button>
+            <Button variant="ghost" onClick={downloadImage}>
+              <Download />
+            </Button>
+            <Button variant="ghost" onClick={() => fnDelete()}>
+              {loadingDelete ? (
+                <BeatLoader size={5} color="white" />
+              ) : (
+                <Trash />
+              )}
+            </Button>
+          </div>
+          <img
+            src={url?.qr}
+            className="w-full self-center sm:self-start ring ring-blue-500 p-1 object-contain"
+            alt="QR Code"
+          />
         </div>
 
-        <div className="flex gap-2">
-          <Button
-            variant="ghost"
-            onClick={() =>
-              navigator.clipboard.writeText(
-                `https://cuttr.in/${url?.short_url}`
-              )
-            }
-          >
-            <Copy />
-          </Button>
-          <Button variant="ghost" onClick={downloadImage}>
-            <Download />
-          </Button>
-          <Button variant="ghost" onClick={() => fnDelete()}>
-            {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
-          </Button>
-        </div>
+        <Card className="sm:w-3/5">
+          <CardHeader>
+            <CardTitle className='text-4xl font-extrabold'>Stats</CardTitle>
+          </CardHeader>
+          {stats && stats?.length ? (
+            <CardContent className='flex flex-col gap-6'>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Total Clicks</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{stats?.length}</p>
+                </CardContent>
+              </Card>
 
-        <div className="sm:w-3/5"></div>
+              <CardTitle>Location Data</CardTitle>
+              <Location stats={stats} />
+              <CardTitle>Device Info</CardTitle>
+            </CardContent>
+          ) : (
+            <CardContent>
+              {loadingStats === false
+                ? "No Statistics yet"
+                : "Loading Statistics.."}
+            </CardContent>
+          )}
+        </Card>
       </div>
     </>
   );
