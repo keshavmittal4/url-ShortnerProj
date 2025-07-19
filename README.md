@@ -19,9 +19,11 @@ This project aims to **simplify the creation, management, and analysis of shorte
 
 ## **Tech Stack**
 
-- **Frontend:** React.js, Vite  
-- **Styling:** Tailwind CSS, PostCSS  
-- **Authentication:** JWT-based authentication (if applicable)  
+- **Frontend:** React.js, Vite
+- **UI Library:** Shadcn UI
+- **Styling:** Tailwind CSS  
+- **Database & Authorization:** Supabase  
+- **Schema Builder:** Yup  
 - **State Management:** React hooks & context API (or specify library used)  
 - **Other Tools:** Axios (for API calls), React Router  
 
