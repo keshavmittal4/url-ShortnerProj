@@ -128,5 +128,6 @@ url-ShortnerProj/
 
 <img width="253" height="222" alt="image" src="https://github.com/user-attachments/assets/2210e7ea-8ad7-43d2-9310-b215eb2a99a2" />
 
+**The same Profile Pic will appear that you uploaded at the time of SignUp**
 
 <img width="1899" height="733" alt="image" src="https://github.com/user-attachments/assets/9a3ca8dd-b7e6-4f5a-90b9-e98a1edf956c" />
