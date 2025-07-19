@@ -88,23 +88,44 @@ url-ShortnerProj/
 
 ---
 
-## **Future Enhancements**
-- **Custom Domains:** Support for branded short links.
-- **Link Expiration:** Set time-based link expiration.
-- **Advanced Analytics:** Heatmaps and click-through rates.
-- **Admin Dashboard:** Manage users and links from a centralized dashboard.
-- **QR Code Generation:** Generate QR codes for shortened URLs.
+## **Screenshots**
 
----
+**SignUp**
+<img width="677" height="745" alt="image" src="https://github.com/user-attachments/assets/c1839e9c-620d-4ce1-bbdc-3f75567e096e" />
 
-## **Contributing**
-Contributions are welcome! If you’d like to contribute:
-1. Fork the repository.
-2. Create a new branch (`feature/your-feature-name`).
-3. Commit your changes.
-4. Open a pull request.
 
----
+**LogIn**
 
-## **License**
-This project is licensed under the [MIT License](LICENSE).
+<img width="603" height="637" alt="image" src="https://github.com/user-attachments/assets/ea8c0590-8694-47c4-97b5-1e7e04fbb531" />
+
+
+
+<img width="1875" height="841" alt="image" src="https://github.com/user-attachments/assets/d3831e6a-2952-4826-8b03-1d767d0e8208" />
+
+
+**One Must Confirm the Email before Login, Otherwise you will receive an error**
+
+
+<img width="1485" height="633" alt="image" src="https://github.com/user-attachments/assets/2a47c508-8a8b-4eed-aa97-1989d3aece1c" />
+
+
+**Once you confirm, you will be redirected to Home Page**
+
+
+<img width="1808" height="651" alt="image" src="https://github.com/user-attachments/assets/02d1983e-1e85-4e0e-8c6f-8bab9edd2578" />
+
+
+**Enter Your Long URL**
+
+<img width="609" height="798" alt="image" src="https://github.com/user-attachments/assets/5f2bdd67-b359-4720-9ae7-299988082c62" />
+
+
+<img width="1868" height="843" alt="image" src="https://github.com/user-attachments/assets/90f4712d-09a5-4019-ab57-08a6c28cc60c" />
+
+**The Shortened Link might not work because the Domain is not registered right now.**
+
+
+<img width="253" height="222" alt="image" src="https://github.com/user-attachments/assets/2210e7ea-8ad7-43d2-9310-b215eb2a99a2" />
+
+
+<img width="1899" height="733" alt="image" src="https://github.com/user-attachments/assets/9a3ca8dd-b7e6-4f5a-90b9-e98a1edf956c" />
